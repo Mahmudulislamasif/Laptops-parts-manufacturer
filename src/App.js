@@ -8,6 +8,10 @@ import Login from './Pages/Login/Login';
 import Registration from './Pages/Login/Registration';
 import RequireAuth from './Pages/Login/RequireAuth';
 import ToolDetails from './Pages/Home/ToolDetails';
+import Myorders from './Pages/Dashboard/Myorders';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import AddReview from './Pages/Dashboard/AddReview';
+import MyProfile from './Pages/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -23,6 +27,11 @@ function App() {
           <ToolDetails/>
         </RequireAuth>
           }>
+        </Route>
+        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
+          <Route index element={<Myorders></Myorders>}></Route>
+          <Route path="review" element={<AddReview></AddReview>}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>

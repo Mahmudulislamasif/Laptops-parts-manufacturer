@@ -5,6 +5,7 @@ const Header = () => {
     const menuBar=<> 
      <li><Link to='/home'>Home</Link></li>
      <li><Link to='/login'>Login</Link></li>
+     <li><Link to='/dashboard'>Dashboard</Link></li>
      </>
     return (
         <div className="navbar bg-purple-700 text-white font-serif">
