@@ -8,6 +8,7 @@ import OrderPage from './OrderPage';
 const ToolDetails = () => {
     const {id}=useParams()
     const [tool,setTool]=useState({})
+    const [reload,setReload]=useState(false)
     const [user] = useAuthState(auth)
     useEffect(()=>{
         const url=`http://localhost:5000/purchase/${id}`
@@ -35,16 +36,76 @@ const ToolDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                
             });
     }
+    const decreaseQuantity =(event)=>
+    {
+          event.preventDefault();
+          const quantity=parseFloat(tool.minimum)-1;
+          const updateQuatity={quantity}
+         
+          if(quantity<0)
+          {
+              alert("There is no item Available item is sold out")
+
+          }
+          if(quantity>=0 )
+          {
+            const url=`http://localhost:5000/tools/${id}`
+            fetch(url,
+              {
+                  method:'PUT',
+                  headers:{
+                      'content-type':'application/json'
+                  },
+                  body:JSON.stringify(updateQuatity)
+              })
+              .then(res=>res.json())
+              .then(data=>{
+                  console.log(data)
+                  setReload(!reload)
+              },[reload])
+          }
+         
+    };
+    const increaseQuantity =(event)=>
+    {
+          event.preventDefault();
+          const quantity=parseFloat(tool.minimum)+1;
+          const updateQuatity={quantity}
+          if(quantity>=0 )
+          {
+            const url=`http://localhost:5000/tools/${id}`
+            fetch(url,
+              {
+                  method:'PUT',
+                  headers:{
+                      'content-type':'application/json'
+                  },
+                  body:JSON.stringify(updateQuatity)
+              })
+              .then(res=>res.json())
+              .then(data=>{
+                  console.log(data)
+                  setReload(!reload)
+              },[reload])
+          }
+         
+    };
 
     return (
-        <div className="flex lg:h-screen justify-center items-center">
+        <div className="lg:w-1/2 mx-auto bg-slate-50">
             <div class="card shadow-xl">
-            <figure><img src={tool.image} alt="" /></figure>
+            <figure><img className="pt-3" src={tool.image} alt="" /></figure>
             <div class="card-body">
                 <h2 class="card-title">{tool.name}</h2>
-                <h2 class="">{tool.price}</h2>
+                <h2 class="text-left text-primary">Price:${tool.price}</h2>
+                <h2 class="text-left text-primary">Price:${tool.price}</h2>
+                
+                <button onClick={increaseQuantity} className='bg-primary p-3 mr-2 rounded'>+</button>
+                <p>{tool.minimum}</p>
+                <button onClick={decreaseQuantity}  className='bg-primary p-3 rounded'>-</button>
                 <div class="card-actions justify-end">
                 <>
                  <label for="my-modal" class="btn modal-button">open modal</label>
@@ -55,14 +116,13 @@ const ToolDetails = () => {
                             <label for="my-modal" class="btn">X</label>
                         </div>
                     <form onSubmit={handleBuy} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-                     
                         <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required/>
                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required/>
                         <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" required/>
                     </form>
-                      
+                   
                         </div>
                 </div>
                       
