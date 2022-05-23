@@ -1,0 +1,20 @@
+[
+    {
+        "_id":1,
+        "ratings":4,
+        "description":"Great APP",
+        "image":""
+    },
+    {
+        "_id":2,
+        "ratings":4,
+        "description":"Great APP",
+        "image":""
+    },
+    {
+        "_id":3,
+        "ratings":4,
+        "description":"Great APP",
+        "image":""
+    }
+]

@@ -20,7 +20,7 @@ const ToolDetails = () => {
         const buy = {
             toolsId: tool._id,
             toolsName: tool.name,
-            userEmail: user.email,
+            email: user.email,
             userName: user.displayName,
             phone: event.target.phone.value,
             address: event.target.address.value
@@ -54,7 +54,7 @@ const ToolDetails = () => {
                         <div class="modal-action">
                             <label for="my-modal" class="btn">X</label>
                         </div>
-                        <form onSubmit={handleBuy} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
+                    <form onSubmit={handleBuy} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                      
                         <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
