@@ -9,7 +9,7 @@ const Tools = () => {
      .then(data=>setTools(data))
     },[])
     return (
-        <div className>
+        <div>
             <h1 className="text-5xl text-purple-700">Tools</h1>
             <div className="grid mx-auto grid-cols-1 lg:grid-cols-3 gap-5">
             {

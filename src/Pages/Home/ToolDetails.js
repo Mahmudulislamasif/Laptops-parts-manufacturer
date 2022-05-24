@@ -102,10 +102,9 @@ const ToolDetails = () => {
                 <h2 class="card-title">{tool.name}</h2>
                 <h2 class="text-left text-primary">Price:${tool.price}</h2>
                 <h2 class="text-left text-primary">Price:${tool.price}</h2>
-                
                 <button onClick={increaseQuantity} className='bg-primary p-3 mr-2 rounded'>+</button>
-                <p>{tool.minimum}</p>
-                <button onClick={decreaseQuantity}  className='bg-primary p-3 rounded'>-</button>
+                        <p>{tool.minimum}</p>
+                        <button onClick={decreaseQuantity}  className='bg-primary p-3 rounded'>-</button>
                 <div class="card-actions justify-end">
                 <>
                  <label for="my-modal" class="btn modal-button">open modal</label>
@@ -121,7 +120,7 @@ const ToolDetails = () => {
                         <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required/>
                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required/>
                         <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" required/>
-                    </form>
+                    </form> 
                    
                         </div>
                 </div>
