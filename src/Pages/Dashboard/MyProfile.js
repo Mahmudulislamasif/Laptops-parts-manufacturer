@@ -1,5 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 
 const MyProfile = () => {
@@ -24,7 +26,10 @@ const MyProfile = () => {
          .then(res => res.json())
          .then(data => {
              console.log(data)
-             
+             if(data)
+             {
+                 toast.success("Data Added Successfully")
+             }
          });
      }
     return (
@@ -38,6 +43,7 @@ const MyProfile = () => {
                      <input type="text" name="linkdin" placeholder="Linkdin Profile Link" className="input input-bordered w-full max-w-xs" />
                      <input  type="submit" value="Submit" className="btn btn-primary text-secondary w-full max-w-xs" required/>
              </form>
+             <ToastContainer/>
         </div>
     );
 };
