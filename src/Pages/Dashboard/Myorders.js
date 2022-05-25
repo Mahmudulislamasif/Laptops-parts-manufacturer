@@ -21,7 +21,7 @@ const Myorders = () => {
                     <th></th>
                     <th>Email</th>
                     <th>Name</th>
-                    <th>Favorite Color</th>
+                    <th>Total Price</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,7 @@ const Myorders = () => {
                        <th>{index+1}</th>
                        <td>{myitem.email}</td>
                        <td>{myitem.toolsName}</td>
-                       <td>Blue</td>
+                       <td>{myitem.total}</td>
                        </tr>)
                     }
 

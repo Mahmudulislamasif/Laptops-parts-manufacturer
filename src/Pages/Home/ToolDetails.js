@@ -18,13 +18,17 @@ const ToolDetails = () => {
     })
     const handleBuy=(event)=>{
         event.preventDefault()
+        const total=parseFloat(event.target.price.value)*parseFloat(event.target.quantity.value);
         const buy = {
             toolsId: tool._id,
             toolsName: tool.name,
             email: user.email,
+            quantity:event.target.quantity.value,
+            price:event.target.price.value,
             userName: user.displayName,
             phone: event.target.phone.value,
-            address: event.target.address.value
+            address: event.target.address.value,
+            total:total
         }
         fetch('http://localhost:5000/booking', {
             method: 'POST',
@@ -69,6 +73,7 @@ const ToolDetails = () => {
           }
          
     };
+
     const increaseQuantity =(event)=>
     {
           event.preventDefault();
@@ -102,9 +107,9 @@ const ToolDetails = () => {
                 <h2 class="card-title">{tool.name}</h2>
                 <h2 class="text-left text-primary">Price:${tool.price}</h2>
                 <h2 class="text-left text-primary">Price:${tool.price}</h2>
-                <button onClick={increaseQuantity} className='bg-primary p-3 mr-2 rounded'>+</button>
+                {/* <button onClick={increaseQuantity} className='bg-primary p-3 mr-2 rounded'>+</button>
                         <p>{tool.minimum}</p>
-                        <button onClick={decreaseQuantity}  className='bg-primary p-3 rounded'>-</button>
+                        <button onClick={decreaseQuantity}  className='bg-primary p-3 rounded'>-</button> */}
                 <div class="card-actions justify-end">
                 <>
                  <label for="my-modal" class="btn modal-button">open modal</label>
@@ -116,8 +121,10 @@ const ToolDetails = () => {
                         </div>
                     <form onSubmit={handleBuy} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                         <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
-                        <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
+                        <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" /> 
                         <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required/>
+                        <input type="number" name="quantity" placeholder="Quantity" min={tool.minimum} max={tool.available} className="input input-bordered w-full max-w-xs" required/>
+                        <input type="number" name="price" placeholder="Price" value={tool.price} className="input input-bordered w-full max-w-xs" required/>
                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required/>
                         <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" required/>
                     </form> 
