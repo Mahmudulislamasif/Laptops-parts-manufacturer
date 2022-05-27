@@ -21,7 +21,7 @@ const Header = () => {
     <li><Link to='/portfolio'>My Portfolio</Link></li>
      </>
     return (
-        <div className="navbar bg-white text-primary">
+        <div className="navbar bg-pink-50 text-black">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex="0" className="btn btn-ghost lg:hidden">

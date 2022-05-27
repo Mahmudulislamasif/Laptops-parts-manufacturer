@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../asset/parts.jpg'
 const Banner = () => {
     return (
-        <div className="hero min-h-screen bg-slate-200">
+        <div className="hero min-h-screen bg-pink-50">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <figure><img src={image} className="rounded-lg shadow-2xl" alt='' /></figure>
           <div>

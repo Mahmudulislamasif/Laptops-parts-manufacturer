@@ -5,6 +5,7 @@ const AddReview = () => {
        event.preventDefault()
        const comment={
         commentDescription: event.target.comment.value,
+        ratings: event.target.ratings.value,
        }
        fetch('http://localhost:5000/comments', {
         method: 'POST',
@@ -21,7 +22,8 @@ const AddReview = () => {
     return (
         <div>
              <form onSubmit={handleComment}  className='grid grid-cols-1 gap-3 justify-items-center mt-2'>  
-                     <textarea type="text" name="comment"  className="input input-bordered w-full max-w-xs" />
+                     <textarea type="text" name="comment"  placeholder="Write review here" className="input input-bordered w-full max-w-xs" />
+                     <input type="number" name="ratings" max="5" min="1" placeholder="Rating"  className="input input-bordered w-full max-w-xs" />
                      <input type="submit" value="Submit" className="btn btn-primary text-secondary w-full max-w-xs" required/>
              </form>
         </div>
