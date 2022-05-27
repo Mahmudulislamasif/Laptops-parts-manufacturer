@@ -16,6 +16,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import NotFound from './Pages/NotFound/NotFound';
 import Users from './Pages/Dashboard/Users';
+import AddProduct from './Pages/Dashboard/AddProduct';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="review" element={<AddReview></AddReview>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="users" element={<Users></Users>}></Route>
+          <Route path="addproduct" element={<AddProduct></AddProduct>}></Route>
         </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
