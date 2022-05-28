@@ -7,7 +7,7 @@ const AddReview = () => {
         commentDescription: event.target.comment.value,
         ratings: event.target.ratings.value,
        }
-       fetch(' https://vast-badlands-64337.herokuapp.com/comments', {
+       fetch('https://vast-badlands-64337.herokuapp.com/comments', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
