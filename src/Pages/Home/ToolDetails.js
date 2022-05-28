@@ -11,7 +11,7 @@ const ToolDetails = () => {
     const [reload,setReload]=useState(false)
     const [user] = useAuthState(auth)
     useEffect(()=>{
-        const url=`http://localhost:5000/purchase/${id}`
+        const url=` https://vast-badlands-64337.herokuapp.com/purchase/${id}`
         fetch(url)
         .then(res=>res.json()) 
         .then(data=>setTool(data))
@@ -30,7 +30,7 @@ const ToolDetails = () => {
             address: event.target.address.value,
             total:total
         }
-        fetch('http://localhost:5000/booking', {
+        fetch(' https://vast-badlands-64337.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const ToolDetails = () => {
           }
           if(quantity>=0 )
           {
-            const url=`http://localhost:5000/tools/${id}`
+            const url=` https://vast-badlands-64337.herokuapp.com/tools/${id}`
             fetch(url,
               {
                   method:'PUT',
@@ -81,7 +81,7 @@ const ToolDetails = () => {
           const updateQuatity={quantity}
           if(quantity>=0 )
           {
-            const url=`http://localhost:5000/tools/${id}`
+            const url=` https://vast-badlands-64337.herokuapp.com/tools/${id}`
             fetch(url,
               {
                   method:'PUT',
@@ -106,13 +106,15 @@ const ToolDetails = () => {
             <div class="card-body">
                 <h2 class="card-title">{tool.name}</h2>
                 <h2 class="text-left text-primary">Price:${tool.price}</h2>
-                <h2 class="text-left text-primary">Price:${tool.price}</h2>
+                <h2 class="text-left text-primary">Description:${tool.description}</h2>
+                <h2 class="text-left text-primary">minimum:${tool.minimum}</h2>
+                <h2 class="text-left text-primary">Available:${tool.availbale}</h2>
                 {/* <button onClick={increaseQuantity} className='bg-primary p-3 mr-2 rounded'>+</button>
                         <p>{tool.minimum}</p>
                         <button onClick={decreaseQuantity}  className='bg-primary p-3 rounded'>-</button> */}
                 <div class="card-actions justify-end">
                 <>
-                 <label for="my-modal" class="btn modal-button">open modal</label>
+                 <label for="my-modal" class="btn btn-primary">Order Now</label>
                         <input type="checkbox" id="my-modal" class="modal-toggle" />
                         <div class="modal">
                         <div class="modal-box">
@@ -126,7 +128,7 @@ const ToolDetails = () => {
                         <input type="number" name="quantity" placeholder="Quantity" min={tool.minimum} max={tool.available} className="input input-bordered w-full max-w-xs" required/>
                         <input type="number" name="price" placeholder="Price" value={tool.price} className="input input-bordered w-full max-w-xs" required/>
                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required/>
-                        <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" required/>
+                        <input type="submit" value="Submit" className="btn text-secondary btn-primary w-full max-w-xs" required/>
                     </form> 
                    
                         </div>

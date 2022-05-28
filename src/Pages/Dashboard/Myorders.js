@@ -8,7 +8,7 @@ const Myorders = () => {
     
     useEffect(()=>{
         const email=user.email;
-        const url=`http://localhost:5000/booking?email=${email}`
+        const url=` https://vast-badlands-64337.herokuapp.com/booking?email=${email}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setMyitems(data))

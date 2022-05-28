@@ -11,7 +11,7 @@ const AddProduct = () => {
          price: event.target.price.value,
          image:event.target.image.value,
         }
-        fetch('http://localhost:5000/tools', {
+        fetch(' https://vast-badlands-64337.herokuapp.com/tools', {
          method: 'POST',
          headers: {
              'content-type': 'application/json'

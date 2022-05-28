@@ -16,7 +16,7 @@ const MyProfile = () => {
          userPhone: event.target.phone.value,
          userLinkdin: event.target.linkdin.value
         }
-        fetch('http://localhost:5000/profile', {
+        fetch(' https://vast-badlands-64337.herokuapp.com/profile', {
          method: 'POST',
          headers: {
              'content-type': 'application/json'

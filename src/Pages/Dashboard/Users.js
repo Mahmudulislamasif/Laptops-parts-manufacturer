@@ -4,7 +4,7 @@ import UserRow from './UserRow';
 const Users = () => {
     const [users,getUser]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/user')
+        fetch(' https://vast-badlands-64337.herokuapp.com/user')
         .then(res=>res.json())
         .then(data=>getUser(data))
     },[])
