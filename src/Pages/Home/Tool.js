@@ -14,7 +14,7 @@ const Tool = ({tool}) => {
         </figure>
         <div className="card-body bg-slate-600 text-white">
             <h2 className="card-title">{name}</h2>
-            <p className="text-left">{description}</p>
+            <p className="text-justify">{description}</p>
             <p className="text-left">Minimun Order Quantity: {minimum}</p>
             <p className="text-left">Available Quantity: {available}</p>
             <p className="text-left">Price: {price}</p>

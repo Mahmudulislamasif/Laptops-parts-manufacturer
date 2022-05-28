@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../Shared/Loading';
 import UserRow from './UserRow';
 
 const Users = () => {
@@ -8,7 +9,10 @@ const Users = () => {
         .then(res=>res.json())
         .then(data=>getUser(data))
     },[])
-   
+    if(users.length===0)
+    {
+        return <Loading></Loading>
+    }
     return (
         <div class="overflow-x-auto">
             <table class="table w-full">
@@ -22,7 +26,7 @@ const Users = () => {
                 </thead>
                 <tbody>
                     {
-                       users.map(user=><UserRow key={user._id} user={user}></UserRow>)
+                       users.map((user,index)=><UserRow key={user._id} index={index} user={user}></UserRow>)
                     }
 
                 </tbody>

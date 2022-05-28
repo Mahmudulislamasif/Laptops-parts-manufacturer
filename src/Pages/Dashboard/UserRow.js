@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserRow = ({user}) => {
+const UserRow = ({user,index}) => {
     const {email,role}=user;
     const makeAdmin=()=>{
         fetch(` https://vast-badlands-64337.herokuapp.com/user/admin/${email}`,{
@@ -14,7 +14,7 @@ const UserRow = ({user}) => {
     }
     return (
                <tr>
-                       <th>1</th>
+                       <th>{index+1}</th>
                        <td>{email}</td>
                        <td>{role!=='admin' && <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button>}</td>
                        <td><button className="btn btn-xs">Remove user</button></td>

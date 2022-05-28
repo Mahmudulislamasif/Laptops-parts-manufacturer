@@ -106,7 +106,7 @@ const ToolDetails = () => {
             <div class="card-body">
                 <h2 class="card-title">{tool.name}</h2>
                 <h2 class="text-left text-primary">Price:${tool.price}</h2>
-                <h2 class="text-left text-primary">Description:${tool.description}</h2>
+                <h2 class=" text-primary text-justify">Description:${tool.description}</h2>
                 <h2 class="text-left text-primary">minimum:${tool.minimum}</h2>
                 <h2 class="text-left text-primary">Available:${tool.availbale}</h2>
                 {/* <button onClick={increaseQuantity} className='bg-primary p-3 mr-2 rounded'>+</button>

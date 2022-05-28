@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../Shared/Loading';
 import Tool from './Tool';
 
 const Tools = () => {
@@ -8,6 +9,10 @@ const Tools = () => {
      .then(res=>res.json())
      .then(data=>setTools(data))
     },[])
+    if(tools.length===0)
+    {
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h1 className="text-5xl mt-2 text-purple-700 tex-bold">Tools</h1>
