@@ -18,6 +18,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Users from './Pages/Dashboard/Users';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="users" element={<Users></Users>}></Route>
           <Route path="addproduct" element={<AddProduct></AddProduct>}></Route>
           <Route path="manageproduct" element={<ManageProduct></ManageProduct>}></Route>
+          <Route path="manageproducts" element={<ManageProducts></ManageProducts>}></Route>
         </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
