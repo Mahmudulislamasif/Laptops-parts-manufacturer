@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
-import OrderPage from './OrderPage';
-
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ToolDetails = () => {
     const {id}=useParams()
     const [tool,setTool]=useState({})
-    const [reload,setReload]=useState(false)
     const [user] = useAuthState(auth)
     useEffect(()=>{
         const url=` https://vast-badlands-64337.herokuapp.com/purchase/${id}`
@@ -39,66 +37,11 @@ const ToolDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                toast.success('Order recorded succesfully')
                 
             });
     }
-    const decreaseQuantity =(event)=>
-    {
-          event.preventDefault();
-          const quantity=parseFloat(tool.minimum)-1;
-          const updateQuatity={quantity}
-         
-          if(quantity<0)
-          {
-              alert("There is no item Available item is sold out")
-
-          }
-          if(quantity>=0 )
-          {
-            const url=` https://vast-badlands-64337.herokuapp.com/tools/${id}`
-            fetch(url,
-              {
-                  method:'PUT',
-                  headers:{
-                      'content-type':'application/json'
-                  },
-                  body:JSON.stringify(updateQuatity)
-              })
-              .then(res=>res.json())
-              .then(data=>{
-                  console.log(data)
-                  setReload(!reload)
-              },[reload])
-          }
-         
-    };
-
-    const increaseQuantity =(event)=>
-    {
-          event.preventDefault();
-          const quantity=parseFloat(tool.minimum)+1;
-          const updateQuatity={quantity}
-          if(quantity>=0 )
-          {
-            const url=` https://vast-badlands-64337.herokuapp.com/tools/${id}`
-            fetch(url,
-              {
-                  method:'PUT',
-                  headers:{
-                      'content-type':'application/json'
-                  },
-                  body:JSON.stringify(updateQuatity)
-              })
-              .then(res=>res.json())
-              .then(data=>{
-                  console.log(data)
-                  setReload(!reload)
-              },[reload])
-          }
-         
-    };
-
+   
     return (
         <div className="lg:w-1/2 mx-auto bg-slate-50">
             <div class="card shadow-xl">
@@ -130,7 +73,7 @@ const ToolDetails = () => {
                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required/>
                         <input type="submit" value="Submit" className="btn text-secondary btn-primary w-full max-w-xs" required/>
                     </form> 
-                   
+                    <ToastContainer/>
                         </div>
                 </div>
                       

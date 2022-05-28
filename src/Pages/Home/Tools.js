@@ -5,7 +5,7 @@ import Tool from './Tool';
 const Tools = () => {
     const [tools,setTools]=useState([])
     useEffect(()=>{
-     fetch(' https://vast-badlands-64337.herokuapp.com/tools')
+     fetch('https://vast-badlands-64337.herokuapp.com/tools')
      .then(res=>res.json())
      .then(data=>setTools(data))
     },[])
