@@ -23,7 +23,7 @@ const AddReview = () => {
         <div>
              <form onSubmit={handleComment}  className="grid grid-cols-1 gap-3 justify-items-center mt-2">  
                      <textarea type="text" name="comment"  placeholder="Write review here" className="input input-bordered w-full max-w-xs" />
-                     <input type="number" name="ratings" max="5" min="1" placeholder="Rating"  className="input input-bordered w-full max-w-xs" />
+                     <input type="number" name="ratings" max="5" min="1" placeholder="Rating"  className="input input-bordered w-full max-w-xs"  step="any" />
                      <input type="submit" value="Submit" className="btn btn-primary text-secondary w-full max-w-xs" required/>
              </form>
         </div>

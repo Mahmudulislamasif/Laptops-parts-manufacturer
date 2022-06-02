@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 const ManageProducts = () => {
     const [tools,setTools]=useState([])
     useEffect(()=>{
-     fetch('https://vast-badlands-64337.herokuapp.com/tools')
+     fetch(`https://vast-badlands-64337.herokuapp.com/tools`)
      .then(res=>res.json())
      .then(data=>setTools(data))
     },[])
@@ -18,12 +18,13 @@ const ManageProducts = () => {
         const proceed=window.confirm('Are you sure to delete items?')
         if(proceed)
         { 
-            fetch(`https://agile-brushlands-55517.herokuapp.com/tools/${id}`,
+            fetch(`https://vast-badlands-64337.herokuapp.com/tools/${id}`,
             {
                 method:'DELETE'
             })
             .then(res=>res.json())
             .then(data=>{
+                console.log(data)
                 const remaining=tools.filter(item=>item._id!==id)
                 setTools(remaining)
             })
@@ -50,8 +51,9 @@ const ManageProducts = () => {
                    <td>{tool.name}</td>
                    <td>{tool.price}</td>
                    <td>
-                                    <button onClick={()=>handleDelete(tool._id)}>
-                                    <FontAwesomeIcon className="bg-red-400 p-2 border-2" icon={faTrashAlt}></FontAwesomeIcon></button>
+                                <button onClick={()=>handleDelete(tool._id)}>
+                                    <FontAwesomeIcon className="bg-red-400 p-2 border-2" icon={faTrashAlt}></FontAwesomeIcon>
+                                </button>
                                 </td>
                    </tr>)
                 }
