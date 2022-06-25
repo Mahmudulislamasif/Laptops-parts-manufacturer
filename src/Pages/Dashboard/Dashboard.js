@@ -10,15 +10,15 @@ const Dashboard = () => {
 
     return (
         <div>
-            <div class="drawer drawer-mobile">
+            <div class="drawer drawer-mobile bg-slate-800">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
-                <h2 className='text-2xl font-bold text-purple-500'>Welcome to your Dashboard</h2>
+                <h2 className='text-2xl py-4 font-bold text-white'>Welcome to your Dashboard</h2>
                 <Outlet></Outlet>
             </div>
             <div class="drawer-side">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-50 bg-base-100 text-base-content">
+                <ul class="menu p-4 overflow-y-auto w-50 bg-[#454545] text-white ">
                    
                     {
                     admin ? 
@@ -30,9 +30,9 @@ const Dashboard = () => {
                     </>
                     :
                     <>
-                    <li><Link to="/dashboard">My Orders</Link></li>
-                    <li><Link to="/dashboard/review">My Reviews</Link></li>
-                    <li><Link to="/dashboard/myprofile">My Profile</Link></li>
+                    <li><Link to="/dashboard" className="hover:bg-pink-500">My Orders</Link></li>
+                    <li><Link to="/dashboard/review" className="hover:bg-pink-500">My Reviews</Link></li>
+                    <li><Link to="/dashboard/myprofile" className="hover:bg-pink-500">My Profile</Link></li>
                     </>
                     
                     }

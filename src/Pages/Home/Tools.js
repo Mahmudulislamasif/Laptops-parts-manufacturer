@@ -14,8 +14,8 @@ const Tools = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
-            <h1 className="text-5xl mt-2 text-purple-700 tex-bold">Tools</h1>
+        <div className="bg-[#E7E6E2]   p-2">
+            <h1 className="text-5xl text-bold">Tools</h1>
             <div className="grid m-4 grid-cols-1 lg:grid-cols-3 gap-4">
             {
               tools.slice(0,6).map(tool=><Tool key={tool._id} tool={tool}></Tool>)

@@ -14,7 +14,7 @@ const Myorders = () => {
         .then(data=>setMyitems(data))
 },[user])
     return (
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto p-4">
             <table class="table w-full">
                 <thead>
                 <tr>

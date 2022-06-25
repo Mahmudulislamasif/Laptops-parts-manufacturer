@@ -6,8 +6,7 @@ const Banner = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <figure><img src={image} className="rounded-lg shadow-2xl" alt='' /></figure>
           <div className="text-left">
-            <h1 className="text-3xl font-bold">Best Laptop parts available here</h1>
-            <p className="py-6"></p>
+            <h1 className="text-3xl font-bold py-4">Best Laptop parts available here</h1>
             <button className="btn btn-primary text-secondary">Get Started</button>
           </div>
         </div>

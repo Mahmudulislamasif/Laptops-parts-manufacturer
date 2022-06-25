@@ -21,10 +21,10 @@ const AddReview = () => {
     }
     return (
         <div>
-             <form onSubmit={handleComment}  className="grid grid-cols-1 gap-3 justify-items-center mt-2">  
-                     <textarea type="text" name="comment"  placeholder="Write review here" className="input input-bordered w-full max-w-xs" />
-                     <input type="number" name="ratings" max="5" min="1" placeholder="Rating"  className="input input-bordered w-full max-w-xs"  step="any" />
-                     <input type="submit" value="Submit" className="btn btn-primary text-secondary w-full max-w-xs" required/>
+             <form onSubmit={handleComment}  className="flex flex-col w-1/2 mx-auto md:w-3/4 bg-slate-50 shadow-inner rounded-xl p-4">  
+                     <textarea type="text" name="comment"  placeholder="Write review here" className="input input-bordered " />
+                     <input type="number" name="ratings" max="5" min="1" placeholder="Rating"  className="input input-bordered "  step="any" />
+                     <input type="submit" value="Submit" className="btn btn-primary text-secondary" required/>
              </form>
         </div>
     );
