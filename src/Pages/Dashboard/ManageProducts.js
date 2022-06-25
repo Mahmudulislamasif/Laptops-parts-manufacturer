@@ -31,26 +31,26 @@ const ManageProducts = () => {
         }
     }
     return (
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto p-3">
         <table class="table w-full">
             <thead>
             <tr>
-                <th></th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Delete</th>
+                <th className="bg-cyan-400">Serial</th>
+                <th className="bg-cyan-400">Image</th>
+                <th className="bg-cyan-400">Name</th>
+                <th className="bg-cyan-400">Price</th>
+                <th className="bg-cyan-400">Delete</th>
             </tr>
             </thead>
             <tbody>
                 {
                    tools.map((tool,index)=> 
                    <tr key={tool._id}>
-                   <th>{index+1}</th>
-                   <td><img className="w-10" src={tool.image} alt=''></img></td>
-                   <td>{tool.name}</td>
-                   <td>{tool.price}</td>
-                   <td>
+                   <th className="bg-slate-100">{index+1}</th>
+                   <td className="bg-slate-100"><img className="w-10" src={tool.image} alt=''></img></td>
+                   <td className="bg-slate-100">{tool.name}</td>
+                   <td className="bg-slate-100">{tool.price}</td>
+                   <td className="bg-slate-100">
                                 <button onClick={()=>handleDelete(tool._id)}>
                                     <FontAwesomeIcon className="bg-red-400 p-2 border-2" icon={faTrashAlt}></FontAwesomeIcon>
                                 </button>

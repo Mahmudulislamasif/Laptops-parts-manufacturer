@@ -14,10 +14,10 @@ const UserRow = ({user,index}) => {
     }
     return (
                <tr>
-                       <th>{index+1}</th>
-                       <td>{email}</td>
-                       <td>{role!=='admin' && <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button>}</td>
-                       <td><button className="btn btn-xs">Remove user</button></td>
+                       <th className="bg-slate-100">{index+1}</th>
+                       <td className="bg-slate-100">{email}</td>
+                       <td className="bg-slate-100">{role!=='admin' && <button onClick={makeAdmin} className="btn bg-green-300 hover:bg-green-300 text-black border-0 btn-xs">Make Admin</button>}</td>
+                       <td className="bg-slate-100"><button className="btn bg-red-500 hover:bg-red-500 text-black border-0 btn-xs ">Remove user</button></td>
                 </tr>
     );
 };

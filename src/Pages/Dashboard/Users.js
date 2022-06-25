@@ -14,14 +14,14 @@ const Users = () => {
         return <Loading></Loading>
     }
     return (
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto p-3">
             <table class="table w-full">
                 <thead>
                 <tr>
-                    <th></th>
-                    <th>Email</th>
-                    <th>Admin</th>
-                    <th>Delete</th>
+                    <th className="bg-cyan-400"></th>
+                    <th className="bg-cyan-400">Email</th>
+                    <th className="bg-cyan-400">Admin</th>
+                    <th className="bg-cyan-400">Delete</th>
                 </tr>
                 </thead>
                 <tbody>

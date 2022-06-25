@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 const BusinessSummary = () => {
     return (
-        <div>
-             <h1 className="text-5xl text-purple-700 mt-4 mb-3">Business Summary</h1>
-             <div className="m-5 bg-slate-100">
+        <div className="bg-[#E7E6E2]">
+             <h1 className="text-5xl mb-3">Business Summary</h1>
+             <div className="m-5">
              <div className='grid mx-auto grid-cols-1 lg:grid-cols-4 gap-5'>
             <div className="mt-2 card">
                 <figure><FontAwesomeIcon className="text-9xl text-primary" icon={faFlag}></FontAwesomeIcon></figure>
@@ -18,7 +18,7 @@ const BusinessSummary = () => {
                 <figure><FontAwesomeIcon className="text-9xl text-primary" icon={faDesktop}></FontAwesomeIcon></figure>
                 <div className="card-body text-white">
                     <h2 className="text-center text-black text-4xl">500+</h2>
-                    <h2 className="text-center text-black text-3xl">Country</h2>
+                    <h2 className="text-center text-black text-3xl">Projects</h2>
                 </div>
                 </div>
                 <div className="card">

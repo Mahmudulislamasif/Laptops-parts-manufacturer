@@ -21,9 +21,9 @@ const AddReview = () => {
     }
     return (
         <div>
-             <form onSubmit={handleComment}  className="flex flex-col w-1/2 mx-auto md:w-3/4 bg-slate-50 shadow-inner rounded-xl p-4">  
-                     <textarea type="text" name="comment"  placeholder="Write review here" className="input input-bordered " />
-                     <input type="number" name="ratings" max="5" min="1" placeholder="Rating"  className="input input-bordered "  step="any" />
+             <form onSubmit={handleComment}  className="flex flex-col w-1/2 md:w-3/4 mx-auto bg-slate-50 shadow-inner rounded-xl p-4">  
+                     <textarea type="text" name="comment"  placeholder="Write review here" className="input input-bordered mb-2" required />
+                     <input type="number" name="ratings" max="5" min="1" placeholder="Rating"  className="input input-bordered mb-2"  step="any" />
                      <input type="submit" value="Submit" className="btn btn-primary text-secondary" required/>
              </form>
         </div>
