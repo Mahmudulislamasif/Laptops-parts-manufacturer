@@ -1,14 +1,15 @@
 import { itMatchesOne } from 'daisyui/src/lib/postcss-prefixer/utils';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 const Myorders = () => {
     const [user]=useAuthState(auth)
     const [myitems,setMyitems]=useState([])
     
     useEffect(()=>{
-        const email=user.email;
-        const url=` https://vast-badlands-64337.herokuapp.com/booking?email=${email}`
+        const email=user?.email;
+        const url=`https://vast-badlands-64337.herokuapp.com/booking?email=${email}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setMyitems(data))
@@ -33,6 +34,14 @@ const Myorders = () => {
                        <td>{myitem.email}</td>
                        <td>{myitem.toolsName}</td>
                        <td>{myitem.total}</td>
+                       <td>
+                        {
+                            <Link to={`/dashboard/payment/${myitem._id}`}><button className="btn btn-xs btn-success">pay</button></Link>
+                        }
+                        {
+                             <Link to={``}><span className="text-success">paid</span></Link>
+                        }
+                       </td>
                        </tr>)
                     }
 

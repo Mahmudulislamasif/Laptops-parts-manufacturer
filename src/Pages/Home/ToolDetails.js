@@ -43,21 +43,19 @@ const ToolDetails = () => {
     }
    
     return (
-        <div className="lg:w-1/2 mx-auto bg-slate-50">
-            <div class="card shadow-xl">
-            <figure><img className="pt-3" src={tool.image} alt="" /></figure>
+      <div className="bg-slate-800 p-3">
+          <div className="lg:w-1/2 mx-auto bg-slate-200 rounded-xl">
+            <div class="card shadow-xl p-3">
+            <figure><img className=" rounded-lg border-2 border-orange-500 " src={tool.image} alt="" /></figure>
             <div class="card-body">
-                <h2 class="card-title">{tool.name}</h2>
-                <h2 class="text-left text-primary">Price:${tool.price}</h2>
-                <h2 class=" text-primary text-justify">Description:${tool.description}</h2>
-                <h2 class="text-left text-primary">minimum:${tool.minimum}</h2>
-                <h2 class="text-left text-primary">Available:${tool.availbale}</h2>
-                {/* <button onClick={increaseQuantity} className='bg-primary p-3 mr-2 rounded'>+</button>
-                        <p>{tool.minimum}</p>
-                        <button onClick={decreaseQuantity}  className='bg-primary p-3 rounded'>-</button> */}
+                <h2 class="card-title border-black border-b-2 ">{tool.name}</h2>
+                <h2 class="text-left text-black flex justify-between"><span className="font-bold">Price:</span>${tool.price}</h2>
+                <h2 class=" text-black text-justify flex justify-between"><span className="font-bold">Description:</span>{tool.description}</h2>
+                <h2 class="text-left text-black flex justify-between"><span className="font-bold">Minimum:</span>{tool.minimum}</h2>
+                <h2 class="text-left text-black flex justify-between"><span className="font-bold">Available:</span>{tool.available}</h2>
                 <div class="card-actions justify-end">
                 <>
-                 <label for="my-modal" class="btn btn-primary">Order Now</label>
+                 <label for="my-modal" class="btn border-0 mx-auto w-1/2 bg-orange-500 hover:bg-orange-500 text-black">Order Now</label>
                         <input type="checkbox" id="my-modal" class="modal-toggle" />
                         <div class="modal">
                         <div class="modal-box">
@@ -82,6 +80,7 @@ const ToolDetails = () => {
             </div>
             </div>
        </div>
+      </div>
 
     );
 };
