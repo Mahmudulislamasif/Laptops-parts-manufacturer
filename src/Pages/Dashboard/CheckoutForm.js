@@ -9,7 +9,7 @@ const CheckoutForm = ({payment}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const { _id, total,userName,email} = payment;
+    const {_id, total,userName,email} = payment;
     useEffect(() => {
       fetch('https://vast-badlands-64337.herokuapp.com/create-payment-intent', {
           method: 'POST',
@@ -20,9 +20,10 @@ const CheckoutForm = ({payment}) => {
       })
           .then(res => res.json())
           .then(data => {
-              if (data?.clientSecret) {
-                  setClientSecret(data.clientSecret);
-              }
+             if(data?.clientSecret)
+             {
+                setClientSecret(data.clientSecret);
+             }
           });
 
   }, [total])
@@ -50,10 +51,13 @@ const CheckoutForm = ({payment}) => {
         type: 'card',
         card,
       });
+      
+
+   
   
         setCardError(error?.message ||'')
         setSuccess('');
-        setProcessing(true);
+    //     setProcessing(true);
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
           clientSecret,
           {
@@ -69,7 +73,7 @@ const CheckoutForm = ({payment}) => {
 
       if (intentError) {
           setCardError(intentError?.message);
-          setProcessing(false);
+        //   setProcessing(false);
       }
       else {
           setCardError('');
@@ -82,8 +86,9 @@ const CheckoutForm = ({payment}) => {
               appointment: _id,
               transactionId: paymentIntent.id
           }
+        
           fetch(`https://vast-badlands-64337.herokuapp.com/booking/${_id}`, {
-              method: 'PATCH',
+              method: 'PUT',
               headers: {
                   'content-type': 'application/json',
               },
@@ -116,13 +121,19 @@ const CheckoutForm = ({payment}) => {
                 },
             }}
             />
-            <button type="submit" disabled={!stripe}>
+            <button type="submit" disabled={!stripe ||!clientSecret} className="bg-primary text-white w-1/2 mt-4 py-1 rounded-lg  ">
             Pay
             </button>
         </form>
         {
-            cardError && <p className="text-red-500"></p>
+            cardError && <p className="text-red-500">{cardError}</p>
         }
+         {
+                success && <div className='text-green-500'>
+                    <p>{success}  </p>
+                    <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
+                </div>
+            }
         </>
       
     );

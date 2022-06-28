@@ -67,7 +67,7 @@ const ToolDetails = () => {
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" /> 
                         <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required/>
                         <input type="number" name="quantity" placeholder="Quantity" min={tool.minimum} max={tool.available} className="input input-bordered w-full max-w-xs" required/>
-                        <input type="number" name="price" placeholder="Price" value={tool.price} className="input input-bordered w-full max-w-xs" required/>
+                        <input type="number" name="price" disabled value={tool?.price} className="input input-bordered w-full max-w-xs" required/>
                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required/>
                         <input type="submit" value="Submit" className="btn text-secondary btn-primary w-full max-w-xs" required/>
                     </form> 

@@ -36,11 +36,12 @@ const Myorders = () => {
                        <td>{myitem.total}</td>
                        <td>
                         {
-                            <Link to={`/dashboard/payment/${myitem._id}`}><button className="btn btn-xs btn-success">pay</button></Link>
+                           !myitem.paid && <Link to={`/dashboard/payment/${myitem._id}`}><button className="btn btn-xs btn-success">pay</button></Link>
                         }
-                        {
-                             <Link to={``}><span className="text-success">paid</span></Link>
-                        }
+                            {myitem.paid && <div>
+                                        <p><span className='text-success'>Paid</span></p>
+                                        <p>Transaction id: <span className='text-success'>{myitem.transactionId}</span></p>
+                                    </div>}
                        </td>
                        </tr>)
                     }
