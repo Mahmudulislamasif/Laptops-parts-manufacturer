@@ -21,6 +21,7 @@ const ManageProduct = () => {
                     <th className="bg-cyan-400">Email</th>
                     <th className="bg-cyan-400">Name</th>
                     <th className="bg-cyan-400">Total Price</th>
+                    <th className="bg-cyan-400">State</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,14 @@ const ManageProduct = () => {
                        <td className="bg-slate-100">{order.email}</td>
                        <td className="bg-slate-100">{order.toolsName}</td>
                        <td className="bg-slate-100">{order.total}</td>
+                        <td className="bg-slate-100">
+                             {
+                                order.paid && <p className="text-green-500">Paid</p>
+                             }
+                             {
+                                !order.paid && <p className="text-red-600">Unpaid</p>
+                             }
+                        </td>
                        </tr>)
                     }
 

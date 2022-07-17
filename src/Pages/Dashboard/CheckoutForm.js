@@ -52,12 +52,9 @@ const CheckoutForm = ({payment}) => {
         card,
       });
       
-
-   
-  
         setCardError(error?.message ||'')
         setSuccess('');
-    //     setProcessing(true);
+        setProcessing(true);
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
           clientSecret,
           {
@@ -73,7 +70,7 @@ const CheckoutForm = ({payment}) => {
 
       if (intentError) {
           setCardError(intentError?.message);
-        //   setProcessing(false);
+          setProcessing(false);
       }
       else {
           setCardError('');
@@ -103,7 +100,7 @@ const CheckoutForm = ({payment}) => {
   
     };
     return (
-        <>
+        <div>
             <form onSubmit={handleSubmit}>
             <CardElement
             options={{
@@ -121,7 +118,7 @@ const CheckoutForm = ({payment}) => {
                 },
             }}
             />
-            <button type="submit" disabled={!stripe ||!clientSecret} className="bg-primary text-white w-1/2 mt-4 py-1 rounded-lg  ">
+            <button type="submit" disabled={!stripe || !clientSecret ||success} className="bg-primary text-white w-1/2 mt-4 py-1 rounded-lg  ">
             Pay
             </button>
         </form>
@@ -134,7 +131,7 @@ const CheckoutForm = ({payment}) => {
                     <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
                 </div>
             }
-        </>
+        </div>
       
     );
 };

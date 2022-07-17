@@ -47,7 +47,7 @@ const ManageProducts = () => {
                    tools.map((tool,index)=> 
                    <tr key={tool._id}>
                    <th className="bg-slate-100">{index+1}</th>
-                   <td className="bg-slate-100"><img className="w-10" src={tool.image} alt=''></img></td>
+                   <td className="bg-slate-100"><img className="w-10 rounded-full ring ring-purple-500 ring-offset-base-100 ring-offset-1"  src={tool.image} alt=''></img></td>
                    <td className="bg-slate-100">{tool.name}</td>
                    <td className="bg-slate-100">{tool.price}</td>
                    <td className="bg-slate-100">

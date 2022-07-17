@@ -19,7 +19,7 @@ const UsersPayment = () => {
     },[id])
     return (
         <div>
-            <div class="card w-1/2 bg-gradient-to-r from-blue-500 to-cyan-500  text-white shadow-xl mx-auto mb-3 p-4">
+            <div class="card w-3/4 bg-gradient-to-r from-blue-500 to-cyan-500  text-white shadow-xl mx-auto mb-3 p-4">
                 <div class="card-body">
                     <h2 class="card-title">Hello {user?.displayName}</h2>
                     <h2 class="card-title">Please pay for {payment.toolsName}</h2>
@@ -28,7 +28,7 @@ const UsersPayment = () => {
                     </div>
                 </div>
                 </div>
-                <div class="card shadow-2xl w-1/2 bg-slate-100 mx-auto">
+                <div class="card shadow-2xl w-3/4 mx-auto bg-slate-100">
                 <div class="card-body">
                 <Elements stripe={stripePromise}>
                     <CheckoutForm payment={payment}/>

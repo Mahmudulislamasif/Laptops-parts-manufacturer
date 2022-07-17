@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../asset/parts.jpg'
 const Banner = () => {
     return (
-        <div className="hero min-h-screen bg-gradient-to-r from-purple-500 to-purple-600 text-white">
+        <div className="hero min-h-screen bg-[#42494f] text-white">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <figure><img src={image} className="rounded-lg shadow-2xl" alt='' /></figure>
           <div className="text-left">
