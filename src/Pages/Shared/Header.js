@@ -18,6 +18,7 @@ const Header = () => {
     <li>{user ? <button className=" hover:bg-pink-400 hover:text-white" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
     <li><Link to='/blogs' className='hover:bg-pink-400 hover:text-white'>Blogs</Link></li>
     <li><Link to='/portfolio'>My Portfolio</Link></li>
+    
      </>
     return (
         <div className="navbar bg-gradient-to-r from-slate-100 to-slate-300 text-black">
