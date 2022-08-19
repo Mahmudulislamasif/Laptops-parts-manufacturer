@@ -9,7 +9,7 @@ const ToolDetails = () => {
     const [tool,setTool]=useState({})
     const [user] = useAuthState(auth)
     useEffect(()=>{
-        const url=` https://vast-badlands-64337.herokuapp.com/purchase/${id}`
+        const url=`https://vast-badlands-64337.herokuapp.com/purchase/${id}`
         fetch(url)
         .then(res=>res.json()) 
         .then(data=>setTool(data))

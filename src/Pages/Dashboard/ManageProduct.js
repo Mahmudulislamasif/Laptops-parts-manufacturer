@@ -5,7 +5,7 @@ const ManageProduct = () => {
     const [showOrders,setShowOrders]=useState([])
     useEffect(()=>{
      fetch('https://vast-badlands-64337.herokuapp.com/collectorder')
-     .then(res=>res.json())
+     .then(res=>res.json().stringify())
      .then(data=>setShowOrders(data))
     },[])
     if(showOrders.length===0)
